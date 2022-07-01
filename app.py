@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_restful import Api
 from blacklist import BLACKLIST
 from resources.hotel import Hoteis, Hotel
-from resources.usuario import User, UserLogin, UserRegister, UserLogout
+from resources.usuario import User, UserConfirm, UserLogin, UserRegister, UserLogout
 from resources.site import Site, Sites
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -39,6 +39,7 @@ api.add_resource(UserLogin, '/login')
 api.add_resource(UserLogout, '/logout')
 api.add_resource(Sites, '/sites')
 api.add_resource(Site, '/sites/<string:url>')
+api.add_resource(UserConfirm, '/confirmacao/<int:user_id>')
 
 
 if __name__ == '__main__':
